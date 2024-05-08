@@ -1,0 +1,28 @@
+
+
+
+<h1>Title:</h1>
+<h2>Content:</h2>
+<button>Get Data</button>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script>
+    $(document).ready(function(){
+        $("button").click(function(){
+            $.ajax({
+                url: "/search/1",
+                method: "GET",
+                dataType: "json",
+                success: function(data) {
+                    console.log(data.title);
+                    $("h1").text(data.title);
+                    $("h2").text(data.content);
+                },
+                error: function(xhr, status, error) {
+                    console.error("Error:", error);
+                }
+            });
+        });
+    });
+</script>
+
+
